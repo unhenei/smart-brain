@@ -6,7 +6,7 @@ const ImageLinkForm = ({onInputChange, submitImage}) => {
 			<input 
 				id='inputImg' 
 				type='text' 
-				placeholder='Enter Image URL' 
+				placeholder='Enter Image URL https://' 
 				className='pa2 ma3 f4 w-50'
 				onChange={onInputChange}></input>
 			<button  

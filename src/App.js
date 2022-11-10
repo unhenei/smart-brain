@@ -16,7 +16,7 @@ class App extends Component {
       ranking: '',
       inputUrl: '',
       img:'',
-      box: ''
+      box: []
     }
   }
 
@@ -52,8 +52,8 @@ class App extends Component {
                   }
               }
           ]
-      })
-  }
+        })
+    }
 
     fetch("https://api.clarifai.com/v2/models/face-detection/outputs", requestOptions)
         .then(response => response.json())
@@ -66,30 +66,24 @@ class App extends Component {
   }
 
   faceDetectionBox = (data) => {
-    const box = {
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      border: '3px solid blue' // add border style to box, no box no border
-
-    }
     const image = document.getElementById('imgDisplay');
     const width = image.width;
     const height = image.height;
-    // const faces = data.outputs[0].data.regions.length;
     const boxInfo = data.outputs[0].data.regions.map( region => {
       return region.region_info.bounding_box
     });
     const boxPosition = boxInfo.map(info => {
       let {top_row, left_col, bottom_row, right_col} = info;
-      box.top = top_row * height;
-      box.left = left_col * width;
-      box.right = (1-right_col) * width;
-      box.bottom = (1-bottom_row) * height;
+      const box = {
+        top: top_row * height,
+        left: left_col * width,
+        right: (1-right_col) * width,
+        bottom: (1-bottom_row) * height,
+        border: '3px solid #D6E4E5' // add border style to box, no box no border
+      }
       return box
     })
-    return box
+    return boxPosition
   }
 
   render(){
