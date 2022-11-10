@@ -1,0 +1,19 @@
+#Navigation {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	margin: 0;
+	list-style: none;
+	box-shadow: 2px 2px 2px 2px slategray;
+}
+
+#Navigation > li {
+	margin: 15px;
+	font-size: 1.2rem;
+	font-weight: 500;
+}
+
+#Navigation > li:hover {
+	cursor: pointer;
+	text-decoration: underline;
+}

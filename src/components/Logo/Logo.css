@@ -1,0 +1,8 @@
+.tilt {
+	position: absolute;
+	top: 10%;
+	background-color: rgba(251, 231, 198, 0.5);
+	border-radius: 5px;
+	box-shadow: 5px 5px 5px 5px slategray;
+/*	background: linear-gradient(89deg, #FF5EDF 0%, #04C8DE 100%); */
+}
