@@ -61,7 +61,7 @@ class App extends Component {
         .then(result => this.setState({box: result}))
         .catch(error => {
           console.log('error', error);
-          this.setState({img:''});
+          this.setState({img:''});  // app wont break due to unable process img
         });
   }
 
