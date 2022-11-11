@@ -1,13 +1,18 @@
 import React from 'react';
 import './Navigation.css';
 
-const Navigation = () => {
+const Navigation = ({onRouteChange, route}) => {
 	return(
 		<div>
-			<ul id='Navigation'>
-				<li>{'Sign In'}</li>
-				<li>{'Register'}</li>
-			</ul>
+			{(route === 'home')?
+				<ul className='Navigation'>
+					<li onClick={() => {onRouteChange('signin')}}>{'Sign Out'}</li>
+				</ul>:
+				<ul className='Navigation'>
+					<li onClick={() => {onRouteChange('signin')}}>{'Sign In'}</li>
+					<li onClick={() => {onRouteChange('register')}}>{'Register'}</li>
+				</ul>
+			}
 		</div>
 	)
 }

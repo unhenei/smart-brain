@@ -6,6 +6,8 @@ import Navigation from './components/Navigation/Navigation'
 import Rank from './components/Rank/Rank';
 import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import FaceRecognition from './components/FaceRecognition/FaceRecognition';
+import SignIn from './components/SignIn/SignIn';
+import Register from './components/Register/Register';
 import 'tachyons';
 
 class App extends Component {
@@ -16,7 +18,8 @@ class App extends Component {
       ranking: '',
       inputUrl: '',
       img:'',
-      box: []
+      box: [],
+      route: 'signin'
     }
   }
 
@@ -86,15 +89,32 @@ class App extends Component {
     return boxPosition
   }
 
+  onRouteChange = (props) => {
+    this.setState({
+      route: props,
+      inputUrl: '',
+      img: '',
+      box: []
+    })
+  }
+
   render(){
     return (
       <div>
         <ParticlesBg num={300} type="cobweb" bg={true} />
-        <Navigation />
+        <Navigation onRouteChange={this.onRouteChange} route={this.state.route} />
         <Logo />
-        <Rank />
-        <ImageLinkForm onInputChange={this.onInputChange} submitImage={this.submitImage} />
-        <FaceRecognition imgUrl={this.state.img} box={this.state.box} />
+        
+        {(this.state.route === 'signin')?
+          <SignIn onRouteChange={this.onRouteChange} />:
+        (this.state.route === 'register')?
+          <Register onRouteChange={this.onRouteChange} />:
+          <div>
+            <Rank />
+            <ImageLinkForm onInputChange={this.onInputChange} submitImage={this.submitImage} />
+            <FaceRecognition imgUrl={this.state.img} box={this.state.box} />
+          </div>
+        }
       </div>
     );    
   }

@@ -8,8 +8,8 @@ const FaceRecognition = ({imgUrl, box}) => {
 		return
 	}
 
-	const faceBox = box.map(box => {
-		return <div key={box.index} style={{border: box.border , position: 'absolute', top: box.top, left: box.left, right: box.right, bottom: box.bottom }}></div>
+	const faceBox = box.map((box, index) => {
+		return <div key={index} style={{border: box.border , position: 'absolute', top: box.top, left: box.left, right: box.right, bottom: box.bottom }}></div>
 	})
 		
 	return(

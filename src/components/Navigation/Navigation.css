@@ -1,4 +1,4 @@
-#Navigation {
+.Navigation {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: flex-end;
@@ -7,13 +7,13 @@
 	box-shadow: 2px 2px 2px 2px slategray;
 }
 
-#Navigation > li {
+.Navigation > li {
 	margin: 15px;
 	font-size: 1.2rem;
 	font-weight: 500;
 }
 
-#Navigation > li:hover {
+.Navigation > li:hover {
 	cursor: pointer;
 	text-decoration: underline;
 }
