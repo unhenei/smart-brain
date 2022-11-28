@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ImageLinkForm = ({onInputChange, submitImage}) => {
+const ImageLinkForm = ({onInputChange, onImageSubmit}) => {
 	return(
 		<div className='center' style={{position:'absolute', top:'250px'}}>
 			<input 
@@ -11,7 +11,7 @@ const ImageLinkForm = ({onInputChange, submitImage}) => {
 				onChange={onInputChange}></input>
 			<button  
 				className='pa2 f4 bg-slategrey br1 hover-bg-transparent w-10 pointer'
-				onClick={submitImage}>
+				onClick={onImageSubmit}>
 				{'Submit'}
 			</button>
 		</div>

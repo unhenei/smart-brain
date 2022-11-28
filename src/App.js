@@ -14,23 +14,40 @@ class App extends Component {
   constructor(){
     super()
     this.state={
-      user: '',
-      ranking: '',
       inputUrl: '',
       img:'',
       box: [],
-      route: 'signin'
+      route: 'signin',
+      user: {
+        id:'',
+        name:'',
+        email:'',
+        entries: 0,
+        joined: ''
+      }
     }
+  }
+
+  loadUser = (data) => {
+    this.setState({
+      user: {
+        id: data.id,
+        name: data.name,
+        email: data.email,
+        entries: data.entries,
+        joined: data.joined
+      }
+    })
   }
 
   onInputChange = (event) => {
     this.setState({inputUrl: event.target.value})
   }
 
-  submitImage = () => {
+  onImageSubmit = () => {
     this.setState({img: this.state.inputUrl})
     if(this.state.inputUrl.length === 0){
-      this.setState({box:''})
+      this.setState({box:[]})
       return
     }
 
@@ -59,13 +76,27 @@ class App extends Component {
     }
 
     fetch("https://api.clarifai.com/v2/models/face-detection/outputs", requestOptions)
-        .then(response => response.json())
-        .then(result => this.faceDetectionBox(result))
-        .then(result => this.setState({box: result}))
-        .catch(error => {
-          console.log('error', error);
-          this.setState({img:''});  // app wont break due to unable process img
-        });
+            .then(response => response.json())
+            .then(result => {
+              if(result){
+                fetch('http://localhost:3000/image',{
+                  method: 'put',
+                  headers: {'Content-Type': 'application/json'},
+                  body: JSON.stringify({
+                    id: this.state.user.id
+                  })
+                })
+                .then(response => response.json())
+                .then(count => {
+                  this.setState(Object.assign(this.state.user,{entries: count}))
+                })
+              }
+              this.faceDetectionBox(result)
+            })
+            .catch(error => {
+              console.log('error', error);
+              this.setState({img:''});  // app wont break due to unable process img
+            });
   }
 
   faceDetectionBox = (data) => {
@@ -86,7 +117,7 @@ class App extends Component {
       }
       return box
     })
-    return boxPosition
+    this.setState({box: boxPosition})
   }
 
   onRouteChange = (props) => {
@@ -106,12 +137,12 @@ class App extends Component {
         <Logo />
         
         {(this.state.route === 'signin')?
-          <SignIn onRouteChange={this.onRouteChange} />:
+          <SignIn onRouteChange={this.onRouteChange} loadUser={this.loadUser} />:
         (this.state.route === 'register')?
-          <Register onRouteChange={this.onRouteChange} />:
+          <Register onRouteChange={this.onRouteChange} loadUser={this.loadUser} />:
           <div>
-            <Rank />
-            <ImageLinkForm onInputChange={this.onInputChange} submitImage={this.submitImage} />
+            <Rank user={this.state.user.name} entries={this.state.user.entries} />
+            <ImageLinkForm onInputChange={this.onInputChange} onImageSubmit={this.onImageSubmit} />
             <FaceRecognition imgUrl={this.state.img} box={this.state.box} />
           </div>
         }
