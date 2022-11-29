@@ -95,7 +95,7 @@ class App extends Component {
               this.faceDetectionBox(result)
             })
             .catch(err => {
-              console.log('fetch image error', error);
+              console.log('fetch image error', err);
               this.setState({img:''});  // app wont break due to unable process img
             });
   }
