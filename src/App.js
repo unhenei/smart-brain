@@ -90,11 +90,12 @@ class App extends Component {
                 .then(count => {
                   this.setState(Object.assign(this.state.user,{entries: count}))
                 })
+                .catch(err => console.log('fetch entries error', err))
               }
               this.faceDetectionBox(result)
             })
-            .catch(error => {
-              console.log('error', error);
+            .catch(err => {
+              console.log('fetch image error', error);
               this.setState({img:''});  // app wont break due to unable process img
             });
   }
