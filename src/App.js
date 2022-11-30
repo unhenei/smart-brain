@@ -51,53 +51,41 @@ class App extends Component {
       return
     }
 
-    const requestOptions = {
-        method: 'POST',
-        headers: {
-            "Accept": "application/json",
-            // 'Key ' + PAT
-            "Authorization": "Key 39d74df2b88749ac87f80a2c39754dc3"
-        },
-        body: JSON.stringify({
-          "user_app_id": {
-              "user_id": "pol7sw0nfrd9",
-              "app_id": "smartbrain"
-          },
-          "inputs": [
-              {
-                  "data": {
-                      "image": {
-                          "url": this.state.inputUrl
-                      }
-                  }
-              }
-          ]
-        })
-    }
-
-    fetch("https://api.clarifai.com/v2/models/face-detection/outputs", requestOptions)
-            .then(response => response.json())
-            .then(result => {
-              if(result){
-                fetch('http://localhost:3000/image',{
-                  method: 'put',
-                  headers: {'Content-Type': 'application/json'},
-                  body: JSON.stringify({
-                    id: this.state.user.id
-                  })
-                })
-                .then(response => response.json())
-                .then(count => {
-                  this.setState(Object.assign(this.state.user,{entries: count}))
-                })
-                .catch(err => console.log('fetch entries error', err))
-              }
-              this.faceDetectionBox(result)
+    fetch('http://localhost:3000/imageUrl', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({
+            inputUrl: this.state.inputUrl
+          })
+       })
+      .then(response => response.json())
+      .then(result => {
+        fetch("https://api.clarifai.com/v2/models/face-detection/outputs", result)
+        .then(response => response.json())
+        .then(result => {
+          if(result){
+            fetch('http://localhost:3000/image',{
+              method: 'put',
+              headers: {'Content-Type': 'application/json'},
+              body: JSON.stringify({
+                id: this.state.user.id
+              })
             })
-            .catch(err => {
-              console.log('fetch image error', err);
-              this.setState({img:''});  // app wont break due to unable process img
-            });
+            .then(response => response.json())
+            .then(count => {
+              this.setState(Object.assign(this.state.user,{entries: count}))
+            })
+            .catch(err => console.log('fetch entries error', err))
+          }
+          return result
+        })
+        .then(result => this.faceDetectionBox(result))
+        .catch(err => console.log('fetch entries error', err))
+      })
+      .catch(err => {
+        console.log('fetch image error', err);
+        this.setState({img:''});  // app wont break due to unable process img
+      })
   }
 
   faceDetectionBox = (data) => {
