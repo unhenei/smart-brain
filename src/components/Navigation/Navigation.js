@@ -6,6 +6,12 @@ const Navigation = ({onRouteChange, route}) => {
 		<div>
 			{(route === 'home')?
 				<ul className='Navigation'>
+					<li onClick={() => {onRouteChange('profile')}}>{'Profile'}</li>
+					<li onClick={() => {onRouteChange('signin')}}>{'Sign Out'}</li>
+				</ul>:
+			(route === 'profile')?
+				<ul className='Navigation'>
+					<li onClick={() => {onRouteChange('home')}}>{'Home'}</li>
 					<li onClick={() => {onRouteChange('signin')}}>{'Sign Out'}</li>
 				</ul>:
 				<ul className='Navigation'>

@@ -8,6 +8,7 @@ import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import FaceRecognition from './components/FaceRecognition/FaceRecognition';
 import SignIn from './components/SignIn/SignIn';
 import Register from './components/Register/Register';
+import Profile from './components/Profile/Profile';
 import 'tachyons';
 
 class App extends Component {
@@ -129,6 +130,8 @@ class App extends Component {
           <SignIn onRouteChange={this.onRouteChange} loadUser={this.loadUser} />:
         (this.state.route === 'register')?
           <Register onRouteChange={this.onRouteChange} loadUser={this.loadUser} />:
+        (this.state.route === 'profile')?
+          <Profile user = {this.state.user} />:
           <div>
             <Rank user={this.state.user.name} entries={this.state.user.entries} />
             <ImageLinkForm onInputChange={this.onInputChange} onImageSubmit={this.onImageSubmit} />
