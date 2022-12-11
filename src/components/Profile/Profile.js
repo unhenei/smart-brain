@@ -29,9 +29,6 @@ class Profile extends React.Component {
 		this.setState({newPasswordCheck: event.target.value});
 	}
 
-
-	// const {name, email, passwordNew, passwordCheck} = req.body;
-
 	onProfileChange = () => {
 		fetch('http://localhost:3000/profile',{
 			method: 'PUT',
@@ -46,6 +43,19 @@ class Profile extends React.Component {
 		.then(response => response.json())
 		.then(console.log)
 		.catch(err => console.log('failed to update profile', err))
+	}
+
+	onAccountDelete = () => {
+		fetch('http://localhost:3000/profile',{
+			method: 'DELETE',
+			headers: {'Content-Type': 'application/json'},
+			body: JSON.stringify({
+				email: this.state.user.email,
+			})
+		})
+		.then(response => response.json())
+		.then(console.log)
+		.catch(err => console.log('failed to delete account', err))
 	}
 
 	render(){
@@ -95,6 +105,12 @@ class Profile extends React.Component {
 		            type="submit" 
 		            value="Submit Change" 
 		            onClick={this.onProfileChange} />
+		        </div>
+		        <div className="">
+		          <input className="b ph3 pv2 input-reset ba b--black bg-red grow pointer f6 dib ma3" 
+		            type="submit" 
+		            value="Delete Account" 
+		            onClick={this.onAccountDelete} />
 		        </div>
 		      </div>
 	    )
