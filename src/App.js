@@ -131,7 +131,7 @@ class App extends Component {
         (this.state.route === 'register')?
           <Register onRouteChange={this.onRouteChange} loadUser={this.loadUser} />:
         (this.state.route === 'profile')?
-          <Profile user = {this.state.user} />:
+          <Profile user = {this.state.user} onRouteChange={this.onRouteChange} />:
           <div>
             <Rank user={this.state.user.name} entries={this.state.user.entries} />
             <ImageLinkForm onInputChange={this.onInputChange} onImageSubmit={this.onImageSubmit} />

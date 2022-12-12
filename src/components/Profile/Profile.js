@@ -56,6 +56,8 @@ class Profile extends React.Component {
 		.then(response => response.json())
 		.then(console.log)
 		.catch(err => console.log('failed to delete account', err))
+
+		this.props.onRouteChange('signin')
 	}
 
 	render(){
