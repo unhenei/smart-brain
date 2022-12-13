@@ -1,4 +1,5 @@
 import React from 'react';
+import PopupWindow from '../Popup/Popup';
 
 
 class Profile extends React.Component {
@@ -41,7 +42,7 @@ class Profile extends React.Component {
 			})
 		})
 		.then(response => response.json())
-		.then(console.log)
+		.then(response => this.props.loadUser(response))
 		.catch(err => console.log('failed to update profile', err))
 	}
 
@@ -73,7 +74,8 @@ class Profile extends React.Component {
 		              id="user-name"
 		              placeholder={this.state.user.name}
 		              value={this.state.user.name}
-		              onChange={this.onNameChange} />
+		              onChange={this.onNameChange}
+		            />
 		          </div>
 		          <div className="mt3">
 		            <label className="db fw6 lh-copy f6" htmlFor="email-address">{`Email: ${this.state.user.email}`}</label>
@@ -109,10 +111,17 @@ class Profile extends React.Component {
 		            onClick={this.onProfileChange} />
 		        </div>
 		        <div className="">
-		          <input className="b ph3 pv2 input-reset ba b--black bg-red grow pointer f6 dib ma3" 
+{/*		          <input className="b ph3 pv2 input-reset ba b--black bg-red grow pointer f6 dib ma3" 
 		            type="submit" 
 		            value="Delete Account" 
-		            onClick={this.onAccountDelete} />
+		            onClick={this.toDeleteBox}
+					 />*/}
+		        	<PopupWindow 
+		        		TriggerBtn={'Delete Account'}
+		        		PopupTitle={'Are you sure you want to delete your account?'}
+		        		PopupContent={'Once the action is done, it can not be reversed.'}
+		        		ConfirmFn={this.onAccountDelete}
+		        	 />
 		        </div>
 		      </div>
 	    )
