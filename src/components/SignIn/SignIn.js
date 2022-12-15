@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import './SignIn.css';
+import toast from 'react-hot-toast';
+
 
 // tailor from tachyon form
 class SignIn extends Component {
@@ -33,6 +35,8 @@ class SignIn extends Component {
       if(user[0].id){
         this.props.loadUser(user[0])
         this.props.onRouteChange('home')
+      } else {
+        toast.error('Invalid Email or Password')
       }
     })
     .catch(err => console.log('signin error', err))

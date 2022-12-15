@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import './Register.css';
+import toast from 'react-hot-toast';
+
 
 // tailor from tachyon form
 class Register extends Component{
@@ -39,6 +41,10 @@ class Register extends Component{
       if(user.id){
         this.props.loadUser(user)
         this.props.onRouteChange('home')
+      } else if (user === 'invalid submission'){
+        toast.error('Invalid submission')
+      } else {
+        toast.error('Something went wrong. Unable to register.')
       }
     })
     .catch(err => console.log('register error', err))

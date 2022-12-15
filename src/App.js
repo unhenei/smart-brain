@@ -10,6 +10,8 @@ import SignIn from './components/SignIn/SignIn';
 import Register from './components/Register/Register';
 import Profile from './components/Profile/Profile';
 import 'tachyons';
+import {Toaster} from 'react-hot-toast'
+
 
 class App extends Component {
   constructor(){
@@ -28,6 +30,7 @@ class App extends Component {
       }
     }
   }
+
 
   loadUser = (data) => {
     this.setState({
@@ -123,15 +126,15 @@ class App extends Component {
     return (
       <div>
         <ParticlesBg num={300} type="cobweb" bg={true} />
+        <div><Toaster /></div>
         <Navigation onRouteChange={this.onRouteChange} route={this.state.route} />
         <Logo />
-        
         {(this.state.route === 'signin')?
           <SignIn onRouteChange={this.onRouteChange} loadUser={this.loadUser} />:
         (this.state.route === 'register')?
           <Register onRouteChange={this.onRouteChange} loadUser={this.loadUser} />:
         (this.state.route === 'profile')?
-          <Profile user = {this.state.user} onRouteChange={this.onRouteChange} loadUser={this.loadUser} />:
+          <Profile user = {this.state.user} onRouteChange={this.onRouteChange} loadUser={this.loadUser} loadPopup={this.loadPopup} />:
           <div>
             <Rank user={this.state.user.name} entries={this.state.user.entries} />
             <ImageLinkForm onInputChange={this.onInputChange} onImageSubmit={this.onImageSubmit} />
