@@ -1,0 +1,17 @@
+#profileForm {
+	border: 1px solid grey;
+    border-radius: 3px;
+    background-color:white;
+    box-shadow:  2px 2px 2px 2px grey;
+    margin-top: 100px;
+}
+
+#profileForm > span {
+	background-color: lightyellow;
+
+}
+
+.fixinfo {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}

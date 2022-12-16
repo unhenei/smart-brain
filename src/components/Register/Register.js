@@ -42,7 +42,7 @@ class Register extends Component{
         this.props.loadUser(user)
         this.props.onRouteChange('home')
       } else if (user === 'invalid submission'){
-        toast.error('Invalid submission')
+        toast.error('Invalid submission.')
       } else {
         toast.error('Something went wrong. Unable to register.')
       }
@@ -59,8 +59,8 @@ class Register extends Component{
             <input 
               className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
               type="text" 
-              name="user-name"  
-              id="user-name"
+              name="register-user-name"  
+              id="register-user-name"
               onChange={this.onNameRegister} />
           </div>
           <div className="mt3">
@@ -68,8 +68,8 @@ class Register extends Component{
             <input 
               className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
               type="email" 
-              name="email-address"  
-              id="email-address"
+              name="register-email-address"  
+              id="register-email-address"
               onChange={this.onEmailRegister} />
           </div>
           <div className="mv3">
@@ -77,11 +77,11 @@ class Register extends Component{
             <input 
               className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
               type="password" 
-              name="password"  
-              id="password"
+              name="register-password"  
+              id="register-password"
               onChange={this.onPasswordRegister} />
           </div>
-        <div className="">
+        <div>
           <input className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
             type="submit" 
             value="Register" 

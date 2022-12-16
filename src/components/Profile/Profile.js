@@ -2,7 +2,7 @@ import React from 'react';
 import {PopupOptions} from '../Popup/Popup';
 import Popup from 'reactjs-popup';
 import toast from 'react-hot-toast';
-
+import './Profile.css'
 
 class Profile extends React.Component {
 	constructor(props){
@@ -21,7 +21,6 @@ class Profile extends React.Component {
 
 	onNameChange = (event) => {
 		this.setState(Object.assign(this.state.user,{name: event.target.value}))
-		console.log(this.state.user.name)
 	}
 
 	onPasswordChange = (event) => {
@@ -76,8 +75,8 @@ class Profile extends React.Component {
 
 	render(){
 		return (
-				<div className="pa4 black-80 measure center tl" id="prfileForm">
-		          <div className="f4 fw6 ph0 mh0">{'Profile'}</div>
+				<div className="pa4 black-80 measure center tl" id="profileForm">
+		          <div className="f3 fw6 ph0 mh0">{'Profile'}</div>
 		          <div className="mt3">
 		            <label className="db fw6 lh-copy f6" htmlFor="user-name">{'User Name'}</label>
 		            <Popup
@@ -85,30 +84,23 @@ class Profile extends React.Component {
 						<input 
 			              className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
 			              type="text"
-			              name="user-name"  
-			              id="user-name"
+			              name="profile-user-name"  
+			              id="profile-user-name"
 			              placeholder={this.state.user.name}
 			              value={this.state.user.name}
 			              onChange={this.onNameChange}
 			            />
 		               )}
 					    position="right center"
+					    contentStyle={{'background-color':'lightyellow', padding: '0.5rem', 'border-radius': '3px', border:'1px solid gray'}}
+					    arrowStyle={{color:'gray'}}
 					    closeOnDocumentClick
 					  >
 					    <span> Start typing to change your name! </span>
 					</Popup>
-		            {/*<input 
-		              className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
-		              type="text"
-		              name="user-name"  
-		              id="user-name"
-		              placeholder={this.state.user.name}
-		              value={this.state.user.name}
-		              onChange={this.onNameChange}
-		            />*/}
 		          </div>
 		          <div className="mt3">
-		            <label className="db fw6 lh-copy f6" htmlFor="email-address">{`Email: ${this.state.user.email}`}</label>
+		            <label className="db fw6 f6 fixinfo" htmlFor="email-address">{`Email: ${this.state.user.email}`}</label>
 		          </div>
 		          <div className="mv3">
 		            <label className="db fw6 lh-copy f6" htmlFor="password">{'Enter New Password'}</label>
@@ -117,16 +109,18 @@ class Profile extends React.Component {
 				            <input 
 				              className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
 				              type="password" 
-				              name="password"  
-				              id="password"
+				              name="passwordNew"  
+				              id="passwordNew"
 				              value={this.state.newPassword}
 				              onChange={this.onPasswordChange}
 				            />
 				        )}
 					    position="right center"
+					    contentStyle={{'background-color':'lightyellow', padding: '0.5rem', 'border-radius': '3px', border:'1px solid gray'}}
+					    arrowStyle={{color:'gray'}}
 					    closeOnDocumentClick
-					  >
-					    <span> Leave it blank if you do not wish to change your password </span>
+					>
+					    <span> Leave it blank if you do not wish to change your password. </span>
 					</Popup>
 		          </div>
 		          <div className="mv3">
@@ -137,39 +131,36 @@ class Profile extends React.Component {
 				            <input 
 				              className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
 				              type="password" 
-				              name="password"  
-				              id="password2"
+				              name="passwordNew2"  
+				              id="passwordNew2"
 				              value={this.state.newPasswordCheck}
 				              onChange={this.onPasswordCheck} />
 				        )}
 					    position="right center"
+					    contentStyle={{'background-color':'lightyellow', padding: '0.5rem', 'border-radius': '3px', border:'1px solid gray'}}
+					    arrowStyle={{color:'gray'}}
 					    closeOnDocumentClick
-					  >
-					    <span> Enter your new password again </span>
+					>
+					    <span> Enter your new password again. </span>
 					</Popup>
 		          </div>
 		          <div className="mv3">
-		            <label className="db fw6 lh-copy f6" htmlFor="entries">{`Entries: ${this.state.user.entries}`}</label>
-		            <label className="db fw6 lh-copy f6" htmlFor="joined">{`Joined: ${this.state.user.joined}`}</label>
+		            <label className="db fw6 f6 fixinfo " htmlFor="entries">{`Entries: ${this.state.user.entries}`}</label>
+		            <label className="db fw6 f6 fixinfo" htmlFor="joined">{`Joined: ${this.state.user.joined}`}</label>
 		          </div>
-		        <div className="">
-		          <input className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
-		            type="submit" 
-		            value="Save Changes" 
-		            onClick={this.onProfileChange} />
-		        </div>
-		        <div className="">
-{/*		          <input className="b ph3 pv2 input-reset ba b--black bg-red grow pointer f6 dib ma3" 
-		            type="submit" 
-		            value="Delete Account" 
-		            onClick={this.toDeleteBox}
-					 />*/}
-		        	<PopupOptions 
-		        		TriggerBtn={'Delete Account'}
-		        		PopupTitle={'Are you sure you want to delete your account?'}
-		        		PopupContent={'Once the action is done, it can not be reversed.'}
-		        		ConfirmFn={this.onAccountDelete}
-		        	 />
+		        <div className='dib ml6'>
+			          <input 
+			          	className="b pa2 ma2 input-reset ba bw1 bg-transparent grow pointer f6" 
+			            type="submit" 
+			            value="Save Changes" 
+			            onClick={this.onProfileChange}
+			           />
+			        	<PopupOptions 
+			        		TriggerBtn={'Delete Account'}
+			        		PopupTitle={'Are you sure you want to delete your account?'}
+			        		PopupContent={'Once the action is done, it can not be reversed.'}
+			        		ConfirmFn={this.onAccountDelete}
+			        	 />
 		        </div>
 		      </div>
 	    )

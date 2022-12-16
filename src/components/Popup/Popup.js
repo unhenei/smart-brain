@@ -6,7 +6,7 @@ import './Popup.css'
 
 const PopupOptions = ({TriggerBtn, PopupTitle, PopupContent, ConfirmFn}) => (
   <Popup
-    trigger={<button className="button pa2 ma2 bg-light-red br3 pointer grow"> {TriggerBtn} </button>}
+    trigger={<button className="button pa2 ma2 bg-light-red pointer grow"> {TriggerBtn} </button>}
     modal
   >
     {close => (
@@ -19,7 +19,6 @@ const PopupOptions = ({TriggerBtn, PopupTitle, PopupContent, ConfirmFn}) => (
           <button
             className="button pa2 ma2 bg-light-green br3 pointer grow"
             onClick={() => {
-              console.log('modal closed ');
               close();
             }}
           >
