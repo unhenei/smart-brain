@@ -10,7 +10,7 @@ import SignIn from './components/SignIn/SignIn';
 import Register from './components/Register/Register';
 import Profile from './components/Profile/Profile';
 import 'tachyons';
-import {Toaster} from 'react-hot-toast'
+import toast, {Toaster} from 'react-hot-toast'
 
 
 class App extends Component {
@@ -79,15 +79,22 @@ class App extends Component {
             .then(count => {
               this.setState(Object.assign(this.state.user,{entries: count}))
             })
-            .catch(err => console.log('fetch entries error', err))
+            .catch(err => {
+              console.log('fetch entries error', err)
+              toast.error('Something went wrong. Please try again or submit another image.')
+            })
           }
           return result
         })
         .then(result => this.faceDetectionBox(result))
-        .catch(err => console.log('fetch entries error', err))
+        .catch(err => {
+          console.log('fetch entries error', err)
+          toast.error('Something went wrong. Please try again or submit another image.')
+        })
       })
       .catch(err => {
         console.log('fetch image error', err);
+        toast.error('Something went wrong. Please try again or submit another image.')
         this.setState({img:''});  // app wont break due to unable process img
       })
   }
