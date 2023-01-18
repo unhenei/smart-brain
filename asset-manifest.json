@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/unhenei/smart-brain/static/css/main.9bd69196.css",
+    "main.js": "/unhenei/smart-brain/static/js/main.d26fb7e1.js",
+    "static/js/787.ad7a1cb5.chunk.js": "/unhenei/smart-brain/static/js/787.ad7a1cb5.chunk.js",
+    "static/media/target.png": "/unhenei/smart-brain/static/media/target.03804ecb814713fbc37d.png",
+    "index.html": "/unhenei/smart-brain/index.html",
+    "main.9bd69196.css.map": "/unhenei/smart-brain/static/css/main.9bd69196.css.map",
+    "main.d26fb7e1.js.map": "/unhenei/smart-brain/static/js/main.d26fb7e1.js.map",
+    "787.ad7a1cb5.chunk.js.map": "/unhenei/smart-brain/static/js/787.ad7a1cb5.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9bd69196.css",
+    "static/js/main.d26fb7e1.js"
+  ]
+}
