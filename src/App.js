@@ -55,7 +55,7 @@ class App extends Component {
       return
     }
 
-    fetch('http://localhost:3000/imageUrl', {
+    fetch('https://git.heroku.com/smart-brain-server.git/imageUrl', {
           method: 'POST',
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({
@@ -68,7 +68,7 @@ class App extends Component {
         .then(response => response.json())
         .then(result => {
           if(result){
-            fetch('http://localhost:3000/image',{
+            fetch('https://git.heroku.com/smart-brain-server.git/image',{
               method: 'put',
               headers: {'Content-Type': 'application/json'},
               body: JSON.stringify({

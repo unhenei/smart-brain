@@ -27,7 +27,7 @@ class Register extends Component{
   }
 
   onRegister = () => {
-    fetch('http://localhost:3000/register', {
+    fetch('https://git.heroku.com/smart-brain-server.git/register', {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
