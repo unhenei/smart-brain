@@ -92,7 +92,7 @@ class Profile extends React.Component {
 			            />
 		               )}
 					    position="right center"
-					    contentStyle={{'background-color':'lightyellow', padding: '0.5rem', 'border-radius': '3px', border:'1px solid gray'}}
+					    contentStyle={{backgroundColor:'lightyellow', padding: '0.5rem', borderRadius: '3px', border:'1px solid gray'}}
 					    arrowStyle={{color:'gray'}}
 					    closeOnDocumentClick
 					  >
@@ -116,7 +116,7 @@ class Profile extends React.Component {
 				            />
 				        )}
 					    position="right center"
-					    contentStyle={{'background-color':'lightyellow', padding: '0.5rem', 'border-radius': '3px', border:'1px solid gray'}}
+					    contentStyle={{backgroundColor:'lightyellow', padding: '0.5rem', borderRadius: '3px', border:'1px solid gray'}}
 					    arrowStyle={{color:'gray'}}
 					    closeOnDocumentClick
 					>
@@ -137,7 +137,7 @@ class Profile extends React.Component {
 				              onChange={this.onPasswordCheck} />
 				        )}
 					    position="right center"
-					    contentStyle={{'background-color':'lightyellow', padding: '0.5rem', 'border-radius': '3px', border:'1px solid gray'}}
+					    contentStyle={{backgroundColor:'lightyellow', padding: '0.5rem', borderRadius: '3px', border:'1px solid gray'}}
 					    arrowStyle={{color:'gray'}}
 					    closeOnDocumentClick
 					>
