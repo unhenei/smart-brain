@@ -32,7 +32,7 @@ class Profile extends React.Component {
 	}
 
 	onProfileChange = () => {
-		fetch('https://git.heroku.com/smart-brain-server.git/profile',{
+		fetch('https://smart-brain-server.herokuapp.com/profile',{
 			method: 'PUT',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({
@@ -55,7 +55,7 @@ class Profile extends React.Component {
 	}
 
 	onAccountDelete = () => {
-		fetch('https://git.heroku.com/smart-brain-server.git/profile',{
+		fetch('https://smart-brain-server.herokuapp.com/profile',{
 			method: 'DELETE',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({
