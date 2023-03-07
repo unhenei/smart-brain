@@ -1,7 +1,7 @@
 # smart-brain (face recognition app)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).\
-It was a full-stack project of ZTM bootcamp, where I built a front-end with Creact React App, a back-end server with express, and a database with PostgreSQL.\
+It was a full-stack project of ZTM bootcamp, where I built a front-end with Creact React App, a back-end server with Express, and a database with PostgreSQL.\
 Here is the front-end code source.\
 Besides the original requirement, I expended the project and added several other features to make it more appealing.\
 \
@@ -31,8 +31,8 @@ I also made sure to add confirmation process when crucial changes were made. For
 
 ### Notification: Toaster Package
 One thing I noticed after building the profile page is that, the user wouldn't know if the password changes were successful until they sign out and try sign in again, which is very inconvenient and could cause login issue (the user don't know to use the old password or not).\
-Same goes when there was an error occurred during registration or signing in. If there was no message, one would think the website was broke, instead of checking their own input. Therefore, I wanted to add a notification box whenever an input was submit.\
-I found out a package that was close to my vision, and the app was greatly improved shortly.
+Same goes when there was an error occurred during registration or signing in. If there was no message, one would think the website was broken, instead of checking their own input. Therefore, I wanted to add a notification box whenever an input was submit.\
+I found out a package that was matched with my specifications, and the app was greatly improved shortly.
 
 ## Future Improvements
 ### CSS Code
