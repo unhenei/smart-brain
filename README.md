@@ -3,7 +3,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).\
 It was a full-stack project of ZTM bootcamp, where I built a front-end with Creact React App, a back-end server with express, and a database with PostgreSQL.\
 Here is the front-end code source.\
-Besides the original requirement, I expended the project and added several other features to make it more appealing.
+Besides the original requirement, I expended the project and added several other features to make it more appealing.\
+\
+<strong>Note: To make a full introduction of the project, the following content is about both the front-end and the back-end.</strong>
 
 ## The Original Project
 ### Dynamic Content Rendering
@@ -19,7 +21,10 @@ Despite the original outline of the project provided by the bootcamp, I wanted t
 
 ### Profile Page
 When there is a registration process, one would expect there to be a membership profile, where you could edit the setting or check your data. That is why I wanted to build a profile page.\
-In an app, it is logical to keep the look in consist, and also to make use of the components to the fullest, the profile page was mainly composed with codes written already. What could be improved here, is to make the form (used by sign in, register, profile) into a component, so the code would be cleaner. I chose not to do that because there were only three uses, and the contexts were very different. For now, it's sufficient to simply copy the form for each use. However, if the app grows in the future, it may be worth creating a component for the form.\
+\
+In an app, it is logical to keep the look in consistency, and also to make use of the components to the fullest, the profile page was mainly composed with codes written already.\
+What could be improved here, is to make the form (used by sign in, register, profile) into a component, so the code would be cleaner. I chose not to do that because there were only three uses, and the contexts were very different. For now, it's sufficient to simply copy the form for each use. However, if the app grows in the future, it may be worth creating a component for the form.\
+\
 My main focus was on the algorithms. There was not much of personal information to provide, so I went with the basic functions, such as changing username, changing password, and the option to delete the account.\
 The username changing was easy, but it took me some time to change the password while not changing the username.\
 I also made sure to add confirmation process when crucial changes were made. For example, double check the new password by asking user to type the password twice, and show a popup when the account deletion button is clicked.
@@ -33,3 +38,6 @@ I found out a package that was close to my vision, and the app was greatly impro
 ### CSS Code
 While tachyons package was really convinient for styling, I found that using it carelessly could make the code a mess, because then there would be three possible place where the code pieces was styled, which are, the <code>style</code> syntax in the JSX, the tachyons packages (via <code>className</code> syntax), and the CSS file.\
 A more systematic way to unify the code for styling is needed.
+
+### API Key
+The API Key should be hidden to prevent misuse. The step was skipped due to the size and goal of the project.
