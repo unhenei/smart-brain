@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+# smart-brain (face recognition app)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).\
+It was a full-stack project of ZTM bootcamp, where I built a front-end with Creact React App, a back-end server with express, and a database with PostgreSQL.\
+Here is the front-end code source.\
+Besides the original requirement, I expended the project and added several other features to make it more appealing.
 
-## Available Scripts
+## The Original Project
+### Dynamic Content Rendering
+The dynamic content rendering by modifying the app's state helped minimize unnecessary page reloads, and improved the user experience.
 
-In the project directory, you can run:
+### API connection
+The face recognition function was enabled by connecting with API.\
+Other than the document and searching online, I also sought help from the customer service to discuss the problem I faced, and eventually succeeded on connecting the API shortly after it went through a major update. (The recent update was the main reason that the source online was mostly unrelated.)
 
-### `npm start`
+## Added Features
+### Multiple Faces Detection
+Despite the original outline of the project provided by the bootcamp, I wanted to make the API to its fullest (just as the demo on its site), which is why I explored the code further and enabled the multi-faces detection.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Profile Page
+When there is a registration process, one would expect there to be a membership profile, where you could edit the setting or check your data. That is why I wanted to build a profile page.\
+In an app, it is logical to keep the look in consist, and also to make use of the components to the fullest, the profile page was mainly composed with codes written already. What could be improved here, is to make the form (used by sign in, register, profile) into a component, so the code would be cleaner. I chose not to do that because there were only three uses, and the contexts were very different. For now, it's sufficient to simply copy the form for each use. However, if the app grows in the future, it may be worth creating a component for the form.\
+My main focus was on the algorithms. There was not much of personal information to provide, so I went with the basic functions, such as changing username, changing password, and the option to delete the account.\
+The username changing was easy, but it took me some time to change the password while not changing the username.\
+I also made sure to add confirmation process when crucial changes were made. For example, double check the new password by asking user to type the password twice, and show a popup when the account deletion button is clicked.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Notification: Toaster Package
+One thing I noticed after building the profile page is that, the user wouldn't know if the password changes were successful until they sign out and try sign in again, which is very inconvenient and could cause login issue (the user don't know to use the old password or not).\
+Same goes when there was an error occurred during registration or signing in. If there was no message, one would think the website was broke, instead of checking their own input. Therefore, I wanted to add a notification box whenever an input was submit.\
+I found out a package that was close to my vision, and the app was greatly improved shortly.
 
-### `npm test`
+## Future Improvements
+### CSS Code
+While tachyons package was really convinient for styling, I found that using it carelessly could make the code a mess, because then there would be three possible place where the code pieces was styled, which are, the <code>style</code> syntax in the JSX, the tachyons packages (via <code>className</code> syntax), and the CSS file.\
+A more systematic way to unify the code for styling is needed.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### API Key
+The API Key should be hidden to prevent misuse. The step was skipped due to the size and goal of the project.
