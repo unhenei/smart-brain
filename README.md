@@ -33,6 +33,3 @@ I found out a package that was close to my vision, and the app was greatly impro
 ### CSS Code
 While tachyons package was really convinient for styling, I found that using it carelessly could make the code a mess, because then there would be three possible place where the code pieces was styled, which are, the <code>style</code> syntax in the JSX, the tachyons packages (via <code>className</code> syntax), and the CSS file.\
 A more systematic way to unify the code for styling is needed.
-
-### API Key
-The API Key should be hidden to prevent misuse. The step was skipped due to the size and goal of the project.
