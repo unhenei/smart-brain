@@ -1,23 +1,18 @@
 # smart-brain (face recognition app)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).\
-It was a full-stack project of ZTM bootcamp, where I built a front-end with Creact React App, a back-end server with Express, and a database with PostgreSQL.\
+It was a full-stack project, where I built a front-end with Creact React App, a back-end server with Express, and a database with PostgreSQL.\
 Here is the front-end code source.\
-Besides the original requirement, I expended the project and added several other features to make it more appealing.\
 \
 <strong>Note: To make a full introduction of the project, the following content is about both the front-end and the back-end.</strong>
 
-## The Original Project
+## The Project
 ### Dynamic Content Rendering
 The dynamic content rendering by modifying the app's state helped minimize unnecessary page reloads, and improved the user experience.
 
 ### API connection
 The face recognition function was enabled by connecting with API.\
 Other than the document and searching online, I also sought help from the customer service to discuss the problem I faced, and eventually succeeded on connecting the API shortly after it went through a major update. (The recent update was the main reason that the source online was mostly unrelated.)
-
-## Added Features
-### Multiple Faces Detection
-Despite the original outline of the project provided by the bootcamp, I wanted to make the API to its fullest (just as the demo on its site), which is why I explored the code further and enabled the multi-faces detection.
 
 ### Profile Page
 When there is a registration process, one would expect there to be a membership profile, where you could edit the setting or check your data. That is why I wanted to build a profile page.\
